@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abra — وكيل الذكاء الاصطناعي الذي يعمل على جهازك</title>
+<meta name="description" content="Abra Desktop — منصة وكلاء ذكاء اصطناعي محلية أولاً: شات فريق متوازي، هيكل تنظيمي تفاعلي، 287 أداة، 557 مهارة، وحاسوب حي يعرض تنفيذ الأدوات. لينكس · ويندوز · ماك.">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<style>
+  :root {
+    --bg: #0e1013;
+    --bg-2: #14171c;
+    --bg-3: #1a1e25;
+    --line: #262b33;
+    --text-1: #eef1f5;
+    --text-2: #b8c0cc;
+    --text-3: #7d8694;
+    --accent: #f59e4b;
+    --accent-2: #ff7a59;
+    --accent-soft: rgba(245, 158, 75, 0.12);
+    --ok: #4ade80;
+    --radius: 14px;
+    --font: 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text-1); font-family: var(--font); line-height: 1.8; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- nav ---------- */
+  nav { position: sticky; top: 0; z-index: 50; background: rgba(14, 16, 19, 0.82); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav-in { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; }
+  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  .nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--text-2); }
+  .nav-links a:hover { color: var(--text-1); }
+  .nav-cta { background: var(--accent); color: #14100a; font-weight: 700; font-size: 13.5px; padding: 8px 18px; border-radius: 999px; transition: transform .15s ease, box-shadow .15s ease; }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(245, 158, 75, 0.35); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding: 96px 0 72px; text-align: center; }
+  .hero::before { content: ''; position: absolute; inset: -40% 20% auto 20%; height: 520px; background: radial-gradient(ellipse at center, rgba(245, 158, 75, 0.13), transparent 65%); pointer-events: none; }
+  .hero img.logo { width: 92px; height: 92px; border-radius: 22px; box-shadow: 0 14px 50px rgba(245, 158, 75, 0.22); margin-bottom: 26px; }
+  .version-chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--bg-2); color: var(--text-2); font-size: 12.5px; padding: 5px 14px; border-radius: 999px; margin-bottom: 18px; }
+  .version-chip b { color: var(--accent); }
+  .version-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+  h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; line-height: 1.4; letter-spacing: -0.5px; }
+  h1 .grad { background: linear-gradient(120deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.sub { max-width: 640px; margin: 18px auto 0; color: var(--text-2); font-size: 17px; }
+  .dl-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 34px; }
+  .btn-dl { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-2); border: 1px solid var(--line); padding: 13px 26px; border-radius: 12px; font-size: 15px; font-weight: 600; transition: all .15s ease; }
+  .btn-dl:hover { border-color: var(--accent); transform: translateY(-2px); background: var(--bg-3); }
+  .btn-dl.primary { background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #14100a; border: none; }
+  .btn-dl.primary:hover { box-shadow: 0 10px 34px rgba(245, 158, 75, 0.38); }
+  .btn-dl small { display: block; font-weight: 400; font-size: 11px; color: var(--text-3); }
+  .btn-dl.primary small { color: rgba(20, 16, 10, 0.65); }
+  .hero .os-note { margin-top: 16px; font-size: 12.5px; color: var(--text-3); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 56px; }
+  .stat { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 12px; }
+  .stat b { display: block; font-size: 26px; color: var(--accent); font-weight: 800; }
+  .stat span { font-size: 12.5px; color: var(--text-3); }
+
+  /* ---------- sections ---------- */
+  section { padding: 72px 0; }
+  section.alt { background: var(--bg-2); border-block: 1px solid var(--line); }
+  .sec-head { text-align: center; margin-bottom: 44px; }
+  .sec-head .kicker { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+  .sec-head h2 { font-size: clamp(24px, 3.6vw, 34px); font-weight: 800; margin-top: 8px; }
+  .sec-head p { color: var(--text-3); max-width: 560px; margin: 10px auto 0; font-size: 15px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: var(--bg-3); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; transition: all .18s ease; }
+  .card:hover { border-color: rgba(245, 158, 75, 0.45); transform: translateY(-3px); }
+  .card .ico { width: 42px; height: 42px; border-radius: 11px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
+  .card h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  .card p { color: var(--text-2); font-size: 13.5px; }
+  .card .tag { display: inline-block; margin-top: 12px; font-size: 11px; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 3px 10px; font-weight: 600; }
+
+  /* new-in-round highlight cards */
+  .new-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .new-card { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--bg-3), var(--bg-2)); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  .new-card::before { content: ''; position: absolute; top: 0; inset-inline: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+  .new-card .badge { font-size: 11px; font-weight: 700; color: #14100a; background: var(--accent); border-radius: 999px; padding: 2px 10px; }
+  .new-card h3 { margin: 12px 0 8px; font-size: 17px; }
+  .new-card p { color: var(--text-2); font-size: 13.5px; }
+
+  /* skills */
+  .skills-cloud { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 860px; margin: 0 auto; }
+  .skill-chip { background: var(--bg-3); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 13px; color: var(--text-2); transition: all .15s ease; }
+  .skill-chip:hover { border-color: var(--accent); color: var(--text-1); transform: translateY(-2px); }
+  .skill-chip b { color: var(--accent); font-weight: 700; }
+  .skills-note { text-align: center; color: var(--text-3); font-size: 13px; margin-top: 22px; }
+
+  /* download table */
+  table { width: 100%; border-collapse: collapse; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: 14px; }
+  th, td { padding: 14px 18px; text-align: right; border-bottom: 1px solid var(--line); }
+  th { background: var(--bg-3); color: var(--text-3); font-size: 12px; font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  td a { color: var(--accent); font-weight: 600; }
+  td a:hover { text-decoration: underline; }
+  .os-ico { display: inline-flex; align-items: center; gap: 8px; }
+  .tbl-note { color: var(--text-3); font-size: 12.5px; margin-top: 14px; }
+
+  /* security list */
+  .sec-list { max-width: 720px; margin: 0 auto; display: grid; gap: 12px; }
+  .sec-item { display: flex; gap: 12px; align-items: flex-start; background: var(--bg-3); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .sec-item .ok-ico { color: var(--ok); font-weight: 800; flex-shrink: 0; }
+  .sec-item p { font-size: 13.5px; color: var(--text-2); }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 56px; text-align: center; color: var(--text-3); font-size: 13px; }
+  footer .f-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 14px; }
+  footer a:hover { color: var(--accent); }
+  .reveal { opacity: 0; transform: translateY(22px); transition: all .6s cubic-bezier(.2,.7,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#"><img src="assets/logo.png" alt="شعار Abra"> أبرا</a>
+    <div class="nav-links">
+      <a href="#new">الجديد</a>
+      <a href="#features">المميزات</a>
+      <a href="#skills">المهارات</a>
+      <a href="#download">التحميل</a>
+      <a href="#security">الأمان</a>
+    </div>
+    <a class="nav-cta" href="#download">حمّل الآن</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo.png" alt="Abra">
+    <div class="version-chip"><span class="dot"></span> الإصدار <b>12.6.0</b> — «الجولة الهادئة» متاح الآن</div>
+    <h1>وكيل الذكاء الاصطناعي الذي<br><span class="grad">يعمل على جهازك</span> مباشرة</h1>
+    <p class="sub">أبرا سطح مكتب — منصة وكلاء كاملة: تكلم فريقك من الوكلاء في شات واحد وكلهم يجيبون بأدواتهم في نفس الوقت، وحاسوب حي يعرض كل تنفيذ أمامك. ملفاتك لا تغادر جهازك.</p>
+    <div class="dl-row">
+      <a class="btn-dl primary" href="https://github.com/qbrahym02-cmyk/abra-release/releases/download/v12.6.0/Abra-Setup-12.6.0.exe">🪟 ويندوز <small>Abra-Setup-12.6.0.exe</small></a>
+      <a class="btn-dl" href="https://github.com/qbrahym02-cmyk/abra-release/releases/download/v12.6.0/Abra-Setup-12.6.0-arm64.dmg">🍎 ماك (أبل سيليكون) <small>arm64 · dmg</small></a>
+      <a class="btn-dl" href="https://github.com/qbrahym02-cmyk/abra-release/releases/download/v12.6.0/Abra-Setup-12.6.0.AppImage">🐧 لينكس <small>AppImage</small></a>
+    </div>
+    <div class="os-note">جميع المنصات الثلاث · التحديث التلقائي مدمج · بلا تسجيل دخول للاستكشاف</div>
+    <div class="stats reveal">
+      <div class="stat"><b>287</b><span>أداة يعرفها الوكيل</span></div>
+      <div class="stat"><b>557</b><span>مهارة قابلة للتثبيت</span></div>
+      <div class="stat"><b>50</b><span>وكيل دائم في فريقك</span></div>
+      <div class="stat"><b>3</b><span>منصات رسمية</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="new">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">جديد الإصدار 12.6.0</div>
+      <h2>الجولة الهادئة</h2>
+      <p>إصلاحان عاجلان، حذفان مطلوبان، وميزتان جديدتان — كلها بطلب من المالك ومُتحق منها بتشغيل حي.</p>
+    </div>
+    <div class="new-grid">
+      <div class="new-card reveal">
+        <span class="badge">ميزة جديدة</span>
+        <h3>💬 شات الفريق</h3>
+        <p>غرفة واحدة تكلم فيها كل وكلائك معاً — رسالة واحدة وكل وكيل يجيب في نفس الوقت ويستخدم أدواته أمامك مباشرة، مع شريط نشاط حي يعرض ما يفعله كل وكيل الآن، وتوجيه بـ @اسم لوكيل بعينه.</p>
+      </div>
+      <div class="new-card reveal">
+        <span class="badge">ميزة جديدة</span>
+        <h3>🕸️ الهيكل التنظيمي التفاعلي</h3>
+        <p>اسحب أي وكيل حيث شئت على خريطة الفريق (المواضع تُحفظ)، واربط الوكلاء ببعضهم أو بالفرق بسحبة واحدة من مقبض الربط — الخطوط تظهر فوراً وتُحدَّث حية.</p>
+      </div>
+      <div class="new-card reveal">
+        <span class="badge">إصلاح أمني</span>
+        <h3>🔴 إصلاحا P0</h3>
+        <p>تهريب HTML صار حقيقياً في ردود Telegram (كان ثغرة حقن وسوم)، وعاد التأكيد الأصلي لوضع YOLO — حوار تحذيري والإلغاء هو الافتراضي، فلا تفعيل صامت للتنفيذ الكامل.</p>
+      </div>
+      <div class="new-card reveal">
+        <span class="badge">حذف مطلوب</span>
+        <h3>🕊️ واجهة هادئة + وضعان واضحان</h3>
+        <p>حُذفت الخلفية المتحركة من الواجهة الرئيسية نهائياً، وحُذف مسار المفاتيح الشخصية وOllama بالكامل — وضعان واضحان فقط: Lite بكريدت واحد وMax للمشتركين، بلا إعدادات مربكة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">لماذا أبرا؟</div>
+      <h2>منصة وكلاء كاملة، محلية أولاً</h2>
+      <p>ذكاء سحابي بحسابك، وأدوات تنفيذ حقيقية على جهازك — بلا خوادم تديرها ولا قواعد بيانات ولا منافذ مفتوحة.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal"><div class="ico">🖥️</div><h3>حاسوب أبرا الحي</h3><p>لوحة حية تعرض تنفيذ الأدوات بث مباشر: المتصفح يعيش داخلها، والطرفية والملفات والمعاينة كلها أمام عينك أثناء العمل.</p><span class="tag">بث مباشر</span></div>
+      <div class="card reveal"><div class="ico">🧠</div><h3>ذاكرة المستخدم التلقائية</h3><p>أبرا يجمع معلوماتك الدائمة من كلامك نفسه — اسمك ولغتك وبلدك وعملك — ويسترجعها في بداية كل محادثة فيعرفك من أول سطر. والأسرار تُرفض تلقائياً.</p><span class="tag">يعرفك دائماً</span></div>
+      <div class="card reveal"><div class="ico">🛠️</div><h3>287 أداة حقيقية</h3><p>ملفات وبرمجة ومتصفح وتحكم كامل بسطح المكتب والفأرة، بريد حقيقي عبر Gmail، جدولة، Git، ومونتاج فيديو متكامل — 117 أداة أساسية + 170 تخصصية في 10 حزم قدرات.</p><span class="tag">تنفيذ لا كلام</span></div>
+      <div class="card reveal"><div class="ico">🧑‍💼</div><h3>فريق وكلاء دائم</h3><p>حتى 50 وكيلاً بأقسام وشخصيات وذاكرة وصندوق بريد لكل واحد — يراسلون بعضهم ويستشير بعضهم بعضاً، وغرفة نقاش دائرية لكل فريق.</p><span class="tag">فريق حقيقي</span></div>
+      <div class="card reveal"><div class="ico">🎬</div><h3>مصنع محتوى متكامل</h3><p>مصغرات، تحويل إلى Shorts، ضبط جهارة LUFS، تصدير المنصات، وبوابة جودة — مع استوديو مونتاج ومستند فيديو يستأنف نفسه بعد إعادة التشغيل.</p><span class="tag">إنتاج كامل</span></div>
+      <div class="card reveal"><div class="ico">📱</div><h3>تحكم عن بعد عبر Telegram</h3><p>راسل بوتك من جوالك فيشتغل جهازك بأدواته ويرد عليك — مع سياسات صريحة وحدود واضحة لما يجوز وما لا يجوز.</p><span class="tag">من أي مكان</span></div>
+      <div class="card reveal"><div class="ico">🪟</div><h3>متصفح الوكيل المدمج</h3><p>متصفح حقيقي يعمل به الوكيل: يقرأ، يملأ نماذج، ويتسلم تسجيل الدخول — مع تسليم النافذة إليك عند أي تحقق بشري.</p><span class="tag"> browsing حقيقي</span></div>
+      <div class="card reveal"><div class="ico">✅</div><h3>«اسألني» قبل الخطوات الحساسة</h3><p>بطاقات إذن صادقة قبل أي كتابة أو أمر أو إرسال: ترى الأمر كاملاً وما سيتأثر بالضبط، وتوافق أو ترفض بضغطة.</p><span class="tag">أنت المتحكم</span></div>
+      <div class="card reveal"><div class="ico">🌙</div><h3>عربية RTL أصيلة</h3><p>واجهة عربية أولاً بكل تفاصيلها — اتجاه، وصولية، وخطوط — مع إنجليزية كاملة بضغطة، وثيم داكن/فاتح مريح.</p><span class="tag">لغتك أولاً</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">مكتبة المهارات</div>
+      <h2>557 مهارة في 27 فئة</h2>
+      <p>الوكيل يقرأ المهارة المطابقة لمجال مهمتك قبل أن يبدأ — قاعدة «مهارة قبل كل مهمة» — و63 مهارة مدمجة أصلاً والبقية تثبت من مكتبة GitHub بضغطة.</p>
+    </div>
+    <div class="skills-cloud reveal">
+      <span class="skill-chip">حرفة الواجهات <b>26</b></span>
+      <span class="skill-chip">تطوير الويب <b>24</b></span>
+      <span class="skill-chip">إنتاج الفيديو <b>16</b></span>
+      <span class="skill-chip">الذكاء الاصطناعي <b>24</b></span>
+      <span class="skill-chip">لغات البرمجة <b>27</b></span>
+      <span class="skill-chip">التصميم وتجربة المستخدم <b>22</b></span>
+      <span class="skill-chip">الكتابة والمحتوى <b>24</b></span>
+      <span class="skill-chip">الأمن السيبراني <b>20</b></span>
+      <span class="skill-chip">هندسة البرمجيات <b>20</b></span>
+      <span class="skill-chip">علم البيانات <b>22</b></span>
+      <span class="skill-chip">التسويق والنمو <b>24</b></span>
+      <span class="skill-chip">استراتيجية الأعمال <b>22</b></span>
+      <span class="skill-chip">تطوير الألعاب <b>22</b></span>
+      <span class="skill-chip">الديفوبس والسحابة <b>22</b></span>
+      <span class="skill-chip">قواعد البيانات <b>20</b></span>
+      <span class="skill-chip">تطبيقات الجوال <b>20</b></span>
+      <span class="skill-chip">واجهات برمجة خلفية <b>24</b></span>
+      <span class="skill-chip">الإعلام الإبداعي <b>22</b></span>
+      <span class="skill-chip">مستندات المكتب <b>18</b></span>
+      <span class="skill-chip">التعليم والتدريس <b>18</b></span>
+      <span class="skill-chip">الإنتاجية <b>18</b></span>
+      <span class="skill-chip">الأتمتة والسكربتات <b>20</b></span>
+      <span class="skill-chip">التواصل <b>16</b></span>
+      <span class="skill-chip">المال والاستثمار <b>20</b></span>
+      <span class="skill-chip">التجارة الإلكترونية <b>16</b></span>
+      <span class="skill-chip">التطوير المهني <b>16</b></span>
+      <span class="skill-chip">إنترنت الأشياء <b>14</b></span>
+    </div>
+    <p class="skills-note">…وكل مهارة ثنائية اللغة يعرفها الوكيل بالكامل ويوظفها بأدواته الحقيقية.</p>
+  </div>
+</section>
+
+<section id="download" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">التحميل</div>
+      <h2>الإصدار 12.6.0 — المنصات الثلاث</h2>
+      <p>نفس المحرك، ثلاث تغليفات احترافية — والتحديث التلقائي يعمل من أي إصدار 12.x مثبت.</p>
+    </div>
+    <div class="reveal">
+      <table>
+        <thead><tr><th>المنصة</th><th>الملف</th><th>المعمارية</th><th>التحميل</th></tr></thead>
+        <tbody>
+          <tr><td><span class="os-ico">🪟</span> ويندوز</td><td>Abra-Setup-12.6.0.exe</td><td>x64</td><td><a href="https://github.com/qbrahym02-cmyk/abra-release/releases/download/v12.6.0/Abra-Setup-12.6.0.exe">مثبّت NSIS</a></td></tr>
+          <tr><td><span class="os-ico">🐧</span> لينكس</td><td>Abra-Setup-12.6.0.AppImage</td><td>x64</td><td><a href="https://github.com/qbrahym02-cmyk/abra-release/releases/download/v12.6.0/Abra-Setup-12.6.0.AppImage">AppImage (الموصى به)</a></td></tr>
+          <tr><td><span class="os-ico">🐧</span> لينكس</td><td>Abra-Setup-12.6.0.deb</td><td>x64</td><td><a href="https://github.com/qbrahym02-cmyk/abra-release/releases/download/v12.6.0/Abra-Setup-12.6.0.deb">دبيان / أوبونتو</a></td></tr>
+          <tr><td><span class="os-ico">🍎</span> ماك</td><td>Abra-Setup-12.6.0-arm64.dmg</td><td>أبل سيليكون</td><td><a href="https://github.com/qbrahym02-cmyk/abra-release/releases/download/v12.6.0/Abra-Setup-12.6.0-arm64.dmg">dmg</a></td></tr>
+          <tr><td><span class="os-ico">🍎</span> ماك</td><td>Abra-Setup-12.6.0-x64.dmg</td><td>إنتل</td><td><a href="https://github.com/qbrahym02-cmyk/abra-release/releases/download/v12.6.0/Abra-Setup-12.6.0-x64.dmg">dmg</a></td></tr>
+        </tbody>
+      </table>
+      <p class="tbl-note">بصمات SHA-256 لكل ملف ضمن صفحة <a href="https://github.com/qbrahym02-cmyk/abra-release/releases" style="color:var(--accent)">الإصدارات</a> — تحقق منها قبل التثبيت (الحزم غير موقعة رقمياً حالياً).</p>
+    </div>
+  </div>
+</section>
+
+<section id="security">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">الأمان والخصوصية</div>
+      <h2>ملفاتك على جهازك، والحماية مغلقة افتراضياً</h2>
+    </div>
+    <div class="sec-list">
+      <div class="sec-item reveal"><span class="ok-ico">✓</span><p><b>محلي أولاً:</b> لا خادم تديره، لا قاعدة بيانات، لا منفذ مفتوح — محادثاتك وملفاتك تبقى على جهازك.</p></div>
+      <div class="sec-item reveal"><span class="ok-ico">✓</span><p><b>عزل صارم:</b> contextIsolation + sandbox مفعّلان، وسياسة المحتوى تمنع أي سكربت خارجي (<code>script-src 'self'</code> · <code>connect-src 'none'</code>).</p></div>
+      <div class="sec-item reveal"><span class="ok-ico">✓</span><p><b>بوابة ثقة لكل مجلد:</b> الوكيل لا يعمل في مجلد إلا بعد موافقتك الصريحة، والأوامر الخطيرة محجوبة بقائمة سوداء صريحة.</p></div>
+      <div class="sec-item reveal"><span class="ok-ico">✓</span><p><b>أسرارك مشفرة:</b> توكنات Telegram وبيانات الموصلات مشفرة على القرص عبر safeStorage بصلاحيات 0600، ولا تعبر حدّ العملية الرئيسية أبداً.</p></div>
+      <div class="sec-item reveal"><span class="ok-ico">✓</span><p><b>حماية SSRF وDNS:</b> فشل حسم اسم النطاق يعني رفضاً صريحاً لا اتصالاً — والمضيفون مطابَقون حرفياً بلا مطابقة لواحق.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-links">
+      <a href="https://github.com/qbrahym02-cmyk/abra-release/releases">الإصدارات</a>
+      <a href="#features">المميزات</a>
+      <a href="#download">التحميل</a>
+      <a href="#security">الأمان</a>
+    </div>
+    <p>Abra Desktop — صنع بعناية للجمهور العربي أولاً.</p>
+  </div>
+</footer>
+
+<script>
+  // the calm reveal: elements rise in ONCE as they enter view (respecting
+  // prefers-reduced-motion — the same discipline the app's UI follows).
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
