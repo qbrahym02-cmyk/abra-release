@@ -14,6 +14,8 @@
 | 🍎 **ماك — أبل سيليكون** | [`Abra-Setup-12.6.0-arm64.dmg`](releases/download/v12.6.0/Abra-Setup-12.6.0-arm64.dmg) | اسحب إلى Applications |
 | 🍎 **ماك — إنتل** | [`Abra-Setup-12.6.0-x64.dmg`](releases/download/v12.6.0/Abra-Setup-12.6.0-x64.dmg) | اسحب إلى Applications |
 
+> SHA-256: exe `61265d33f2792b18feee47ab1a59d8524155828ecb95abd5581a67310d6543f5` · AppImage `4591e55bcd37ffb50e7080855b55bdd692b5c734929e823475562848582734c9` · deb `0b3cf94c4d261bd3e9dc51da356f773ba74f870822a8bba6e7aa16b8dd519c03` · arm64-dmg `b79a1fbe1dbeab12fa13155d084d705c0d51fd507ff177825de9eaa07796650b` · x64-dmg `8bbbc897ab5f8e99669dbe1be38a97488e80539c6d96281746ecf6d01f1d3312`
+
 ### ما الجديد في v12.6.0؟ «الجولة الهادئة»
 
 إصدار الجولة الهادئة بطلب المالك (2026-11-26): إصلاحان عاجلان، حذفان
