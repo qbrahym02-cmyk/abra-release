@@ -1,4 +1,4 @@
-## حمّل الآن الإصدار v12.7.0 — «لوحة القيادة والاشتراكات»: Dashboard · Abra plan · الجرس · خدمة العملاء
+## حمّل الآن الإصدار v12.8.0 — «شات الفريق الغني»: واجهة المحادثة الرئيسية للفريق كله
 
 **Abra Desktop** — وكيل ذكاء اصطناعي عام يعمل على جهازك مباشرة — والآن
 **حسابك كله أمامك**: تبويب «Abra plan» بكل الاشتراكات، صفحة «لوحة القيادة»
@@ -9,15 +9,15 @@
 
 | المنصة | الملف | ملاحظة |
 |---|---|---|
-| 🪟 **ويندوز 10/11** | [`Abra-Setup-12.7.0.exe`](releases/download/v12.7.0/Abra-Setup-12.7.0.exe) | مثبت NSIS معتاد — الترقية من أي إصدار أقدم تعمل مباشرة |
-| 🐧 **لينكس (x64)** | [`Abra-Setup-12.7.0.AppImage`](releases/download/v12.7.0/Abra-Setup-12.7.0.AppImage) | الموصى به: محمول يعمل من أي توزيعة + **تحديث تلقائي** |
-| 🐧 **لينكس (deb)** | [`Abra-Setup-12.7.0.deb`](releases/download/v12.7.0/Abra-Setup-12.7.0.deb) | أوبونتو/دبيان/منت — اعتمادات صريحة وإدخال سطح مكتب كامل |
-| 🍎 **ماك — أبل سيليكون** | [`Abra-Setup-12.7.0-arm64.dmg`](releases/download/v12.7.0/Abra-Setup-12.7.0-arm64.dmg) | اسحب إلى Applications |
-| 🍎 **ماك — إنتل** | [`Abra-Setup-12.7.0-x64.dmg`](releases/download/v12.7.0/Abra-Setup-12.7.0-x64.dmg) | اسحب إلى Applications |
+| 🪟 **ويندوز 10/11** | [`Abra-Setup-12.8.0.exe`](releases/download/v12.8.0/Abra-Setup-12.8.0.exe) | مثبت NSIS معتاد — الترقية من أي إصدار أقدم تعمل مباشرة |
+| 🐧 **لينكس (x64)** | [`Abra-Setup-12.8.0.AppImage`](releases/download/v12.8.0/Abra-Setup-12.8.0.AppImage) | الموصى به: محمول يعمل من أي توزيعة + **تحديث تلقائي** |
+| 🐧 **لينكس (deb)** | [`Abra-Setup-12.8.0.deb`](releases/download/v12.8.0/Abra-Setup-12.8.0.deb) | أوبونتو/دبيان/منت — اعتمادات صريحة وإدخال سطح مكتب كامل |
+| 🍎 **ماك — أبل سيليكون** | [`Abra-Setup-12.8.0-arm64.dmg`](releases/download/v12.8.0/Abra-Setup-12.8.0-arm64.dmg) | اسحب إلى Applications |
+| 🍎 **ماك — إنتل** | [`Abra-Setup-12.8.0-x64.dmg`](releases/download/v12.8.0/Abra-Setup-12.8.0-x64.dmg) | اسحب إلى Applications |
 
 > SHA-256: exe `6e0a57df0e098c76d06412fb240144d2605a98f2bf4ec2ea837a1dd9d7b2fc6d` · AppImage `67209a1836dd1d4578ddf13801b79b0bd2384a0caa4b83c4c9c4c93f77a18b5a` · deb `ac53bdcd403189618b1950ba9db3c1cdd753f4a9e3c94a138dd90afe736b45da` · arm64-dmg `595b3ef8b5fbb4b9e2979f6148a46105da8d99669a5cad4ce5e6bc6c032f6127` · x64-dmg `c6d993861519861ab26e13e972eacb16edc1f4b621088e343fe9990568ab592c`
 
-### ما الجديد في v12.7.0؟ «لوحة القيادة والاشتراكات»
+### ما الجديد في v12.8.0؟ «لوحة القيادة والاشتراكات»
 
 توجيه المالك — ست ميزات دفعة واحدة، وكلها حيّة ومُتحق منها:
 
